@@ -1,0 +1,10 @@
+ citEntry(entry="article",
+         title = "A novel statistical method for quantitative comparison of multiple ChIP-seq datasets",
+         author = personList( as.person("Li Chen"), as.person("Chi Wang"), as.person("Zhaohui S.Qin"), as.person("Hao Wu")), 
+         year = 2015,
+         journal = "Bioinformatics",
+         doi = "10.1093/bioinformatics/btv094",
+         textVersion =
+         paste("Li Chen, Chi Wang, Zhaohui S.Qin, Hao Wu (2015):",
+               "A novel statistical method for quantitative comparison of multiple ChIP-seq datasets. ", 
+                "Bioinformatics, doi:10.1093/bioinformatics/btv094" ) )

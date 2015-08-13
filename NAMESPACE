@@ -1,0 +1,33 @@
+useDynLib(ChIPComp,.registration = TRUE)
+importFrom(IRanges,union)
+importFrom(BiocGenerics,as.data.frame)
+import(IRanges)
+import(limma)
+import(BSgenome.Hsapiens.UCSC.hg19)
+import(BSgenome.Mmusculus.UCSC.mm9)
+importFrom(rtracklayer,import)
+importFrom(GenomeInfoDb,seqlengths)
+importFrom(Rsamtools,scanBam)
+importFrom(Rsamtools,ScanBamParam)
+importFrom(GenomicRanges,tileGenome)
+importFrom(GenomeInfoDb,seqinfo)
+importFrom(GenomicRanges,GRangesList)
+importFrom(GenomicRanges,GRanges)
+importFrom(GenomicRanges, makeGRangesFromDataFrame)
+importFrom(S4Vectors,Rle)
+
+export(makeConf,
+ChIPComp,
+makeCountSet
+)
+
+S3method(plot, ChIPComp)
+S3method(print, ChIPComp)
+
+
+
+
+
+
+
+
