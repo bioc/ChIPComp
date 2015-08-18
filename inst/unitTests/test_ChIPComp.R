@@ -24,7 +24,7 @@ test.makeCountSet<-function(){
 	)
 	design=as.data.frame(lapply(conf[,c("condition","factor")],as.numeric))-1
 	design=as.data.frame(model.matrix(~condition,design))
- 	x=makeCountSet(conf,design,filetype="bed", species="hg19")
+ 	x=makeCountSet(conf,design,filetype="bed", species="hg19",binsize=1000)
 	checkIdentical("ChIPComp",as.character(class(x)))
     checkEquals(length(x),2)
 	checkEquals(ncol(x$db),12)

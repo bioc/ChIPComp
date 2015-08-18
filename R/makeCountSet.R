@@ -50,10 +50,10 @@ makeIPSet=function(ips,peakSet,filetype){
 }
 
 
-makeCTSet=function(cts,peakSet,filetype,species){
+makeCTSet=function(cts,peakSet,filetype,species,binsize,mva.span){
 
 	message("Making control counts......\n")
-	ct.allpeak=getCTCounts(cts,peakSet$pmat,filetype,species)	
+	ct.allpeak=getCTCounts(cts,peakSet$pmat,filetype,species,binsize,mva.span)	
 	ct.opeak=ct.allpeak[peakSet$oidx,]
 	controlSet=list(ct.allpeak=ct.allpeak,ct.opeak=ct.opeak)
 	controlSet
@@ -61,7 +61,7 @@ makeCTSet=function(cts,peakSet,filetype,species){
 
 
 
-makeCountSet=function(conf,design,filetype=c("bed","bam"),species=c("hg19","mm9"),peak.center=FALSE,peak.ext=0){
+makeCountSet=function(conf,design,filetype=c("bed","bam"),species=c("hg19","mm9"),peak.center=FALSE,peak.ext=0,binsize=50,mva.span=c(1000,5000,10000)){
 				
 		if(missing(conf))
 			stop("The configuration data frame should be provided!")
@@ -75,7 +75,7 @@ makeCountSet=function(conf,design,filetype=c("bed","bam"),species=c("hg19","mm9"
 		cts=as.vector(conf$ctReads)
 		peakSet=makePeakSet(peaks,peak.center,peak.ext)
 		ipSet=makeIPSet(ips,peakSet,filetype)
-		controlSet=makeCTSet(cts,peakSet,filetype,species)
+		controlSet=makeCTSet(cts,peakSet,filetype,species,binsize,mva.span)
 		reps=findReplicate(design)
 		
 		if(is.null(design$factor)){

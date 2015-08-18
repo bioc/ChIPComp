@@ -1,8 +1,8 @@
 Package: ChIPComp
 Type: Package
 Title: Quantitative comparison of multiple ChIP-seq datasets
-Version: 0.99.1
-Author: Hao Wu, Li Chen
+Version: 0.99.2
+Author: Hao Wu, Li Chen, Zhaohui S.Qin, Chi Wang
 Maintainer: Li Chen <li.chen@emory.edu>
 Depends: R (>=
         3.2.0),GenomicRanges,IRanges,rtracklayer,GenomeInfoDb,S4Vectors

@@ -22,7 +22,7 @@ getWinCounts<-function(files,wins,filetype=c("bed","bam")){
 }
 
 
-getCTCounts<-function(files,peak.gr,filetype=c("bed","bam"),species=c("hg19","mm9"),binsize=1000,mva.span=c(1000,5000,10000)){
+getCTCounts<-function(files,peak.gr,filetype=c("bed","bam"),species=c("hg19","mm9"),binsize,mva.span){
 
 	n=length(files)
 	p=length(peak.gr)

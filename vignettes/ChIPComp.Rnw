@@ -74,7 +74,7 @@ design=as.data.frame(model.matrix(~condition,design))
 %
 Once we have the configuration data frame and design matrix, we could merge binding sites, detect common binding sites and calculate read counts for each merged binding site.
 <<echo=TRUE,eval=TRUE>>=
-countSet=makeCountSet(conf,design,filetype="bed", species="hg19")
+countSet=makeCountSet(conf,design,filetype="bed", species="hg19",binsize=1000)
 @
 Currently, if \texttt{filetype} is "bam", it is not necessary to specify \texttt{species}. However, if \texttt{filetype} is "bed", we need to specify \texttt{species} either "hg19" or "mm9".
 %

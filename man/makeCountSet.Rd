@@ -9,7 +9,7 @@
 }
 
 \usage{
-	makeCountSet(conf,design,filetype,species,peak.center=FALSE,peak.ext=0)
+	makeCountSet(conf,design,filetype,species,peak.center=FALSE,peak.ext=0,binsize=50,mva.span=c(1000,5000,10000))
 }
 
 \arguments{
@@ -40,6 +40,13 @@
 	\item{peak.ext}{
 		This argument is coupled with \code{peak.center}. Default is 0.
 	}
+	\item{binsize}{
+		binsize in bp to calculate the smooth local lambda in poisson distribution. The default is 50bp.
+	}
+	\item{mva.span}{
+		1 kb, 5 kb or 10 kb window centered at the peak location in the control sample.
+	}
+
 }
 
 
@@ -63,7 +70,7 @@
 	)
 	design=as.data.frame(lapply(conf[,c("condition","factor")],as.numeric))-1
 	design=as.data.frame(model.matrix(~condition,design))
-	countSet=makeCountSet(conf,design,filetype="bed", species="hg19")
+	countSet=makeCountSet(conf,design,filetype="bed", species="hg19",binsize=1000)
 }
 
 
