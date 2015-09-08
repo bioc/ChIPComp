@@ -40,10 +40,10 @@ test.makeCountSet<-function(){
  	x=ChIPComp(seqData)
     checkIdentical("ChIPComp",as.character(class(x)))
     checkEquals(length(x),2)
-	checkEquals(ncol(x$db),13)
+	checkEquals(ncol(x$db),14)
 	checkEquals(ncol(x$design),2)
 	checkEquals(names(x), c("db","design"))
-    checkEquals(names(x$db),c("chr","start","end","ip_c0_r1","ip_c0_r2","ip_c1_r1","ip_c1_r2","ct_c0_r1","ct_c0_r2","ct_c1_r1","ct_c1_r2","commonPeak","prob.post"))
+    checkEquals(names(x$db),c("chr","start","end","ip_c0_r1","ip_c0_r2","ip_c1_r1","ip_c1_r2","ct_c0_r1","ct_c0_r2","ct_c1_r1","ct_c1_r2","commonPeak","prob.post","pvalue.wald"))
  }
 
 

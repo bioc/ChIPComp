@@ -29,10 +29,16 @@ ChIPComp<-function(countSet,A,threshold=1){
    	 					cc=XXX%*%diag(x)%*%t(XXX)
    	 					cc[2,2]
    	 			})			
-  	prob.post=1-pnorm(threshold,beta.est[,2],sqrt(vbeta.cond))+pnorm(-threshold,beta.est[,2],sqrt(vbeta.cond))
+  	wstat=limma.res$coefficients[,2]/sqrt(vbeta.cond)
+	countSet$db$pvalue.wald=2*(1-pnorm(abs(wstat)))
+
+	prob.post=1-pnorm(threshold,beta.est[,2],sqrt(vbeta.cond))+pnorm(-threshold,beta.est[,2],sqrt(vbeta.cond))
   	countSet$db$prob.post=prob.post
-  	structure(countSet,class="ChIPComp")
+	  	
+	structure(countSet,class="ChIPComp")
 }
+
+
 
 
 print.ChIPComp<-function(x,topK=10,...){

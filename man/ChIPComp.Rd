@@ -28,6 +28,7 @@
 	Column \code{ct_c(\#condition)_r(\#replicate)} indicates smoothing control counts in \#replicate in \#condition; 
 	Column \code{commonPeak} 1s indicate common binding sites;
 	Column \code{prob.post} is the posterior probability for each binding site.
+	Column \code{pvalue.wald} is the pvalue of wald test for each binding site.
 }
 
 \author{Hao Wu<hao.wu@emory.edu>, Li Chen <li.chen@emory.edu>}
