@@ -7,7 +7,7 @@ ChIPComp<-function(countSet,A,threshold=1){
 		m1=makeGRangesFromDataFrame(countSet$db)
 		m2=import(A)
 		a=findOverlaps(m1,m2)
-		ix.commonPeak=unique(a@queryHits)	
+		ix.commonPeak=unique(queryHits(a))	
 	}
 	
 	signals=glambda=ip

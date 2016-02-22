@@ -30,10 +30,10 @@ makePeakSet=function(peaks,peak.center,peak.ext){
 		pmat=union(pmat,mat)
 	}
 	tmp=findOverlaps(peak.list[[1]],pmat)
-	oidx=unique(tmp@subjectHits)	
+	oidx=unique(subjectHits(tmp))	
 	for(i in 2:n){
 		tmp=findOverlaps(peak.list[[i]],pmat)
-		oidx=intersect(oidx, unique(tmp@subjectHits))	
+		oidx=intersect(oidx, unique(subjectHits(tmp)))	
 	}
 	peakSet=list(peak.list=peak.list,pmat=pmat,oidx=oidx)
 	peakSet

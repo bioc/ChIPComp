@@ -41,7 +41,7 @@ getCTCounts<-function(files,peak.gr,filetype=c("bed","bam"),species=c("hg19","mm
   		binCounts=countOverlaps(wins,reads)
   		binCounts.rm=rmdup(binCounts,sum(binCounts),sum(chrs/1000),binsize/1000)
   		binCounts.sm=MACS.mva(binCounts.rm, mva.span=mva.span,binsize)
-  		counts=tapply(binCounts.sm[tmp@subjectHits],tmp@queryHits, sum)
+  		counts=tapply(binCounts.sm[subjectHits(tmp)],queryHits(tmp), sum)
 		id1=as.numeric(intersect(names(counts),seq_len(p)))
   		id2=as.numeric(setdiff(names(counts),seq_len(p)))
   		counts.peak[id1,i]=counts
