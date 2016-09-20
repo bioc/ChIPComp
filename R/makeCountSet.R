@@ -61,7 +61,7 @@ makeCTSet=function(cts,peakSet,filetype,species,binsize,mva.span){
 
 
 
-makeCountSet=function(conf,design,filetype=c("bed","bam"),species=c("hg19","mm9"),peak.center=FALSE,peak.ext=0,binsize=50,mva.span=c(1000,5000,10000)){
+makeCountSet=function(conf,design,filetype=c("bed","bam"),species=c("hg19","mm9","other"),peak.center=FALSE,peak.ext=0,binsize=50,mva.span=c(1000,5000,10000)){
 				
 		if(missing(conf))
 			stop("The configuration data frame should be provided!")
