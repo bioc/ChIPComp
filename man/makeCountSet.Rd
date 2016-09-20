@@ -31,7 +31,7 @@
 		Two sequence file types are supported (bed or bam).
 	}
 	\item{species}{
-		Two species are supported (hg19 or mm9).
+		Two species are supported (hg19 or mm9). Other species are supported by specifying other.
 	}
 	\item{peak.center}{
 		This argument is coupled with \code{peak.ext}. Default is FALSE. The argument 
