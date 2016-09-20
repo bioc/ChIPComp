@@ -22,18 +22,31 @@ getWinCounts<-function(files,wins,filetype=c("bed","bam")){
 }
 
 
-getCTCounts<-function(files,peak.gr,filetype=c("bed","bam"),species=c("hg19","mm9"),binsize,mva.span){
+getCTCounts<-function(files,peak.gr,filetype=c("bed","bam"),species=c("hg19","mm9","other"),binsize,mva.span){
 
 	n=length(files)
 	p=length(peak.gr)
 	if(species=="hg19"){
 		wins=tileGenome(seqinfo(BSgenome.Hsapiens.UCSC.hg19), tilewidth=binsize,cut.last.tile.in.chrom=TRUE)
+		chrs=seqlengths(wins)
 	}else if(species=="mm9"){ 
 		wins=tileGenome(seqinfo(BSgenome.Mmusculus.UCSC.mm9), tilewidth=binsize,cut.last.tile.in.chrom=TRUE)
+		chrs=seqlengths(wins)
+	}else if(species=="other"){
+		if(binsize>min(end(peak.gr)-start(peak.gr))){
+			stop("Binsize should be shorter than any peak length!")
+		}
+		wins=unlist(tile(peak.gr,binsize))
+		seqlevel.peak=seqlevels(peak.gr)
+		chrs=numeric(length(seqlevel.peak))
+		names(chrs)=seqlevel.peak
+		for(i in 1:length(seqlevel.peak)){
+			peak=peak.gr[seqnames(peak.gr)==seqlevel.peak[i]]
+			chrs[i]=max(end(peak)-start(peak))
+		}
 	}
 	tmp=findOverlaps(peak.gr,wins)
   	counts.peak=matrix(0,p,n)
-  	chrs=seqlengths(wins)
   	
   	for(i in seq_len(n)){
   		if(filetype=="bam") reads=read.BAM(files[i])
