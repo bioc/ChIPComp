@@ -59,7 +59,7 @@ confs=makeConf(system.file("extdata", "conf.csv", package="ChIPComp"))
 conf=confs$conf
 design=confs$design
 @
-\texttt{ChIPComp} define a configuration data frame and design matrix manually, for example,
+\texttt{ChIPComp} defines a configuration data frame and design matrix manually, for example,
 <<echo=FALSE,eval=FALSE>>=
 conf=data.frame(
 SampleID=1:4,
