@@ -86,6 +86,7 @@ makeCountSet=function(conf,design,filetype=c("bed","bam"),species=c("hg19","mm9"
 			ctNames=paste("ct_c",design[,2],"_f",design[,3],"_r",reps,sep="")
 		}
 		
+		
 		commonPeak=numeric(length(peakSet$pmat))
 		commonPeak[peakSet$oidx]=1
 		db=cbind( as.data.frame(peakSet$pmat)[,seq(3)],ipSet$ip.allpeak,controlSet$ct.allpeak,commonPeak)	
