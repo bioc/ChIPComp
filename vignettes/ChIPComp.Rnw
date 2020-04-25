@@ -60,7 +60,8 @@ conf=confs$conf
 design=confs$design
 @
 \texttt{ChIPComp} defines a configuration data frame and design matrix manually, for example,
-<<echo=FALSE,eval=FALSE>>=
+<<echo=TRUE,eval=TRUE>>=
+library(ChIPComp)
 conf=data.frame(
 SampleID=1:4,
 condition=c("Helas3","Helas3","K562","K562"),
