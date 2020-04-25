@@ -126,15 +126,16 @@ rmdup<-function(counts,countsN,Lg,Lw,pval=1e-5){
 findReplicate<-function(design){
 	reps=double(nrow(design))
 	ix=duplicated(design)
-	for(i in seq(nrow(design))){
-		if(!ix[i]){
-			reps[i]=1
-			k=1
-		}else{
-			reps[i]=k+1
-			k=k+1
-		}
-	}
+	# for(i in seq(nrow(design))){
+	#     if(!is.null(ix[i]) & !is.na(ix[i]) & !ix[i]){
+	#       reps[i]=1
+	#       k=1
+	#     }else{
+	#       reps[i]=k+1
+	#       k=k+1
+	#     }
+	# }
+	reps=as.numeric(ix)+1
 	reps
 }
 
