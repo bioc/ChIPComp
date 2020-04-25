@@ -59,6 +59,8 @@
 }
 
 
+
+
 \examples{
 	conf=data.frame(
 		SampleID=1:4,
@@ -68,9 +70,12 @@
 		ctReads=system.file("extdata",c("Helas3.ct.bed","Helas3.ct.bed","K562.ct.bed","K562.ct.bed"),package="ChIPComp"),
 		peaks=system.file("extdata",c("Helas3.peak.bed","Helas3.peak.bed","K562.peak.bed","K562.peak.bed"),package="ChIPComp")
 	)
+	conf$condition=factor(conf$condition)
+  conf$factor=factor(conf$factor)
 	design=as.data.frame(lapply(conf[,c("condition","factor")],as.numeric))-1
 	design=as.data.frame(model.matrix(~condition,design))
 	countSet=makeCountSet(conf,design,filetype="bed", species="hg19",binsize=1000)
 }
+
 
 
